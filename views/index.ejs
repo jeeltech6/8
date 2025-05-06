@@ -22,9 +22,7 @@
             <% tasks.forEach(task => { %>
                 <li>
                     <span><%= task.title %> (<%= task.priority %>)</span>
-                    <form action="/edit/<%= task._id %>" method="POST" style="display:inline;">
-                        <button type="submit">✏️</button>
-                    </form>
+                    <button type="button" onclick="openEditModal('<%= task._id %>', '<%= task.title %>', '<%= task.priority %>')">✏️</button>
                     <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
                         <button type="submit">🗑️</button>
                     </form>
@@ -32,5 +30,33 @@
             <% }) %>
         </ul>
     </div>
+
+    <!-- Edit Task Modal -->
+    <div id="editModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+        <form id="editForm" action="/edit" method="POST" onsubmit="this.action='/edit/' + document.getElementById('editTaskId').value">
+            <input type="hidden" name="id" id="editTaskId">
+            <input type="text" name="title" id="editTaskTitle" placeholder="Task Title" required>
+            <select name="priority" id="editTaskPriority">
+                <option value="low">Low</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+            </select>
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeEditModal()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+    function openEditModal(id, title, priority) {
+        document.getElementById('editTaskId').value = id;
+        document.getElementById('editTaskTitle').value = title;
+        document.getElementById('editTaskPriority').value = priority;
+        document.getElementById('editModal').style.display = 'block';
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+    </script>
 </body>
 </html>

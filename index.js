@@ -26,9 +26,20 @@ const Task = mongoose.model('Task', taskSchema);
 app.get('/', async (req, res) => {
   try {
     const tasks = await Task.find();
-    res.render('index', { tasks });
+    res.render('index', { tasks, editTask: null });
   } catch (error) {
     res.status(500).send("Error loading tasks.");
+  }
+});
+
+app.get('/edit/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const task = await Task.findById(id);
+    if (!task) return res.status(404).send("Task not found");
+    res.render('index', { tasks: await Task.find(), editTask: task });
+  } catch (error) {
+    res.status(500).send("Error loading task for editing.");
   }
 });
 
