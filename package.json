@@ -1,0 +1,17 @@
+{
+  "name": "todo-db",
+  "version": "1.0.0",
+  "description": "A Node.js project for managing a TODO database.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "yarn install"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "22.x",
+    "yarn": "1.x"
+  }
+}
