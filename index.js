@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+require('dotenv').config();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,7 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // MongoDB Atlas Connection
-mongoose.connect('mongodb+srv://jeel:jeel@cluster0.u0yrxd6.mongodb.net/')
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 .then(() => console.log("✅ Connected to MongoDB Atlas"))
 .catch((err) => console.error("❌ MongoDB connection error:", err));
 
