@@ -32,6 +32,7 @@ app.get('/', async (req, res) => {
     const tasks = await Task.find();
     res.render('index', { tasks, editTask: null });
   } catch (error) {
+    console.error("Error fetching tasks:", error); // Log the exact error
     res.status(500).send("Error loading tasks.");
   }
 });
