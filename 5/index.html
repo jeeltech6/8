@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnifood - Food Ordering App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">Omnifood</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <h1>Delicious Food, Delivered Fast</h1>
+            <p>Experience the best food delivery with Omnifood. Fresh, fast, and at your doorstep.</p>
+            <a href="#order" class="cta-btn">Order Now</a>
+        </section>
+    </header>
+    <main>
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Wide Variety</h3>
+                    <p>Choose from a wide range of cuisines and dishes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fast Delivery</h3>
+                    <p>Get your food delivered hot and fresh, always on time.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Easy Payment</h3>
+                    <p>Multiple payment options for your convenience.</p>
+                </div>
+            </div>
+        </section>
+        <section id="features" class="section">
+            <h2>Why Choose Omnifood?</h2>
+            <ul class="features-list">
+                <li>Modern, user-friendly interface</li>
+                <li>Responsive design for all devices</li>
+                <li>Interactive elements and smooth animations</li>
+                <li>24/7 customer support</li>
+            </ul>
+        </section>
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>Omnifood is dedicated to bringing you the best food delivery experience. Our platform connects you with top restaurants and ensures your meal arrives quickly and safely.</p>
+        </section>
+        <section id="restaurants" class="section">
+            <h2>Featured Restaurants</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Pizza Palace</h3>
+                    <p>Authentic Italian pizzas, fresh from the oven.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Sushi World</h3>
+                    <p>Delicious sushi rolls and sashimi, made to order.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Burger Hub</h3>
+                    <p>Juicy burgers with gourmet toppings and sides.</p>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="section">
+            <h2>What Our Customers Say</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <p>"Omnifood is a lifesaver! Fast delivery and amazing food choices."</p>
+                    <strong>- Priya S.</strong>
+                </div>
+                <div class="service-card">
+                    <p>"I love the easy payment options and the responsive website!"</p>
+                    <strong>- Rahul M.</strong>
+                </div>
+                <div class="service-card">
+                    <p>"Great customer support and a huge variety of restaurants."</p>
+                    <strong>- Aisha K.</strong>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="section">
+            <h2>Frequently Asked Questions</h2>
+            <ul class="features-list">
+                <li><strong>How do I place an order?</strong> <br>Simply browse the menu, add items to your cart, and proceed to checkout.</li>
+                <li><strong>What payment methods are accepted?</strong> <br>We accept credit/debit cards, UPI, and digital wallets.</li>
+                <li><strong>Can I track my order?</strong> <br>Yes, you can track your order status in real-time after placing it.</li>
+                <li><strong>Is there a delivery charge?</strong> <br>Delivery charges may apply based on your location and order value.</li>
+            </ul>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
+                <img id="imagePreview" style="display:none; max-width: 100%; margin-top: 10px;" alt="Image Preview">
+                <button type="submit" class="cta-btn">Send Message</button>
+            </form>
+        </section>
+        <section id="newsletter" class="section" style="background: var(--accent); color: var(--dark);">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form class="contact-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="cta-btn">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 Omnifood. All rights reserved.</p>
+    </footer>
+    <script>
+        function previewImage(event) {
+            const imagePreview = document.getElementById('imagePreview');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
