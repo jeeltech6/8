@@ -41,8 +41,7 @@ views/
 
 ## Deployment
 This project is deployed on Render. You can access the live application using the following link:
-https://eight-2vgm.onrender.com/
-
+(https://eight-2vgm.onrender.com/)
 [Live Application](#)
 
 ## Submission
